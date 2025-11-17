@@ -1,0 +1,354 @@
+/*
+ * ===================================================================
+ * J-POWER 新卒採用LP コンセプトCSS（VS Code用）
+ * -------------------------------------------------------------------
+ * 戦略テーマ：デュアル・マンデート（守る責任と創る挑戦）の視覚化
+ * 
+ * - J-POWER事業分析 (1回目調査)
+ * - LP一般原則 (2回目調査)
+ * - J-POWER採用LP戦略・競合分析 (3回目調査)
+ *
+ * すべての知見をこのスタイルシートに統合する。
+ * ===================================================================
+ */
+
+/* 
+ * ----------------------------------------------------
+ * :root (CSS変数)
+ * J-POWERのブランドと戦略をカラーパレットに定義
+ * ----------------------------------------------------
+ */
+:root {
+    /* 
+     * 柱1：守る（安定・使命・インフラ）[1, 2]
+     * 企業の信頼性・安定供給の使命感を表現する基盤色
+     */
+    --jpower-stable-blue: #002A5C;
+    --text-dark: #333333;
+
+    /* 
+     * 柱2：創る（挑戦・未来・GX）
+     * "BLUE MISSION 2050" [3, 4] と「挑戦意欲」を象徴する変革の色
+     */
+    --jpower-mission-blue: #00A0E9;
+    
+    /* 
+     * プロジェクト（再エネ・水素）[1, 5, 21]
+     */
+    --jpower-renewable-green: #008C4A;
+    --jpower-hydrogen-white: #F5F8FA;
+
+    /* 
+     * CTA（行動喚起・コンバージョン）[16, 17, 18]
+     * 学生の「挑戦」を引き出す、視認性の高いアクセントカラー
+     */
+    --jpower-cta-yellow: #FFD400;
+
+    /* グローバル設定 */
+    --font-primary: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    --container-width: 960px;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 1. 基本スタイル（スマホファースト [20]）
+ * ----------------------------------------------------
+ */
+body {
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    line-height: 1.4;
+    color: var(--jpower-stable-blue);
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 2. ファーストビュー (FV) [6, 8, 22]
+ * LPの最重要領域。「安定」と「挑戦」の二面性を表現
+ * ----------------------------------------------------
+ */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 500px;
+    padding: 1rem;
+    box-sizing: border-box; /* パディングを高さに含める */
+
+    /* J-POWERの「安定（濃紺）」を基盤に「未来（MISSION BLUE）」を重ねる */
+    background: linear-gradient(135deg, var(--jpower-stable-blue) 0%, var(--jpower-mission-blue) 100%);
+    color: white;
+    text-align: center;
+}
+
+.hero-section h1 {
+    /* メインキャッチコピー：学生に「自分ごと」だと認識させる [7] */
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.hero-section .subtitle {
+    /* サブコピー：ベネフィットの提示 [23] */
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 3. CTA (Call to Action) ボタン [16, 17, 18]
+ * LPの唯一の目的「コンバージョン」[15]のための最重要パーツ
+ * ----------------------------------------------------
+ */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* 親しみやすさとモダンさ */
+    
+    /* 視認性が高く「挑戦」を促すアクセントカラー [17] */
+    background-color: var(--jpower-cta-yellow); 
+    color: var(--jpower-stable-blue);
+    
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+ * ----------------------------------------------------
+ * 4. キャリア・ナビゲーター 
+ * 日立「Job Matching」の概念を導入。
+ * 学生に「自分に合う仕事」を発見させる 。
+ * ----------------------------------------------------
+ */
+.career-navigator {
+    background-color: var(--jpower-hydrogen-white); /* クリーンな未来・水素のイメージ  */
+}
+
+.navigator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.navigator-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.navigator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 42, 92, 0.1); /* J-POWERの影色 */
+}
+
+.navigator-card .icon {
+    /* ここに「水力」「火力」「再エネ」「海外」等のアイコンSVG */
+    font-size: 3rem;
+    color: var(--jpower-mission-blue);
+    margin-bottom: 1rem;
+}
+
+.navigator-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 5. プロジェクト・セクション [1, 10]
+ * IHIの「アンモニア」、J-POWERの「GENESIS」など
+ * 具体的な「挑戦」を提示する。
+ * ----------------------------------------------------
+ */
+.project-section {
+    background-color: #FFFFFF;
+}
+
+.project-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+    overflow: hidden; /* 画像のはみ出し防止 */
+    margin-bottom: 2rem;
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-card-content {
+    padding: 1.5rem 2rem;
+}
+
+.project-card-tag {
+    /* 「水素」「洋上風力」「地熱」などのタグ */
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--jpower-renewable-green);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.project-card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 6. コミュニティ・セクション（社員の声）[13, 24]
+ * 「社会的証明」と「人的要素」[13]で信頼性を構築。
+ * Siemensの「Balanced Journey」の概念（ON/OFF）を意識。
+ * ----------------------------------------------------
+ */
+.community-section {
+    background-color: var(--jpower-stable-blue);
+    color: white;
+    text-align: center;
+}
+
+.community-section h2 {
+    color: white;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-card .photo {
+    /* 社員の顔写真 [24] */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--jpower-cta-yellow);
+    margin-bottom: 1rem;
+}
+
+.testimonial-card blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 0 0 1rem 0;
+}
+
+.testimonial-card .author {
+    font-weight: 700;
+    color: var(--jpower-mission-blue);
+}
+
+/* 
+ * ----------------------------------------------------
+ * 7. クロージング（最終CTA）
+ * 縦長LPの最後に、再度強力なCTAを配置 [25, 18]
+ * ----------------------------------------------------
+ */
+.closing-section {
+    background-color: var(--jpower-hydrogen-white);
+    text-align: center;
+}
+
+.closing-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.closing-section p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 8. フォームセクション (EFO) [17, 26]
+ * 採用LPのゴール（リードジェネレーション）[27, 28]。
+ * 入力負荷を最小限に抑えるデザイン。
+ * ----------------------------------------------------
+ */
+.apply-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 42, 92, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* paddingが幅に影響しないように */
+}
+
+/* フォーム内のCTAは幅100%にする */
+.form-group .cta-button {
+    width: 100%;
+}
