@@ -1,0 +1,240 @@
+/* style.css */
+/* ここにスタイルを記述します *//*
+ * ===================================================================
+ * J-POWER 採用サイト コンセプトページ スタイルシート (VS Code用)
+ * -------------------------------------------------------------------
+ * リサーチで明らかになったJ-POWERの二面性、「守り（安定）」と
+ * 「創り（挑戦）」をカラースキームとコンポーネントに反映する。
+ * ===================================================================
+ */
+
+/*
+ * :root (CSS変数定義)
+ * ----------------------------------------------------
+ * J-POWERのビジョンと事業内容に基づき、キーカラーを定義します。
+ */
+:root {
+    /* 
+     * 挑戦・未来 (Create / "BLUE MISSION 2050")
+     * 未来、挑戦、"BLUE MISSION 2050"を象徴する、クリーンで先進的な「青」。
+     */
+    --jpower-mission-blue: #007BFF;
+    --jpower-hydrogen-white: #F8F9FA; /* 水素・アンモニアのクリーンなイメージ [5, 4] */
+
+    /* 
+     * 安定・使命 (Protect / Infrastructure)
+     * 電力インフラを支える「使命感」と「たくましさ」を表す、信頼性の高い「濃紺」。
+     */
+    --jpower-stable-blue: #003366;
+    --jpower-infrastructure-gray: #343A40; /* 送変電ネットワークの重厚感 [6] */
+
+    /* 
+     * 再生可能エネルギー (Renewables)
+     * 風力・地熱などのCO2フリー電源をイメージ。 [3, 7]
+     */
+    --jpower-green-wind: #28A745;       /* 風力（くずまき第二風力） */
+    --jpower-orange-geothermal: #FD7E14; /* 地熱（山葵沢地熱） */
+
+    /* 
+     * アクセント（挑戦・プロフェッショナル）
+     * 「挑戦意欲」「高い専門性」を促すアクセントカラー。[6]
+     */
+    --jpower-challenge-accent: #FFC107;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 1. 基本設定 (Global)
+ * ----------------------------------------------------
+ */
+
+body {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--jpower-infrastructure-gray); /* 基本テキストは信頼感のあるグレー */
+    background-color: #FFFFFF;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 2. ヘッダー & ナビゲーション (Stable Base)
+ * ----------------------------------------------------
+ * ヘッダーは、企業の揺るぎない基盤と「安定供給」の使命を表現する。
+ */
+
+.global-header {
+    background-color: var(--jpower-stable-blue);
+    padding: 1rem 2rem;
+    color: white;
+    border-bottom: 5px solid var(--jpower-challenge-accent); /* 安定基盤の上にある「挑戦」 */
+}
+
+.global-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 500;
+}
+
+.global-nav a:hover {
+    color: var(--jpower-challenge-accent);
+}
+
+/* 
+ * ----------------------------------------------------
+ * 3. ヒーローセクション (BLUE MISSION 2050)
+ * ----------------------------------------------------
+ * 企業の未来へのコミットメントを力強く打ち出す。 
+ */
+
+.hero-section.mission-blue {
+    background-color: var(--jpower-mission-blue);
+    background-image: linear-gradient(45deg, var(--jpower-mission-blue), #0056b3);
+    color: var(--jpower-hydrogen-white);
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+.hero-section.subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* 
+ * ----------------------------------------------------
+ * 4. 事業紹介セクション (Duality: Protect & Create)
+ * ----------------------------------------------------
+ * J-POWERの二面性（守る事業と創る事業）を並べて表示する。 
+ */
+
+.business-section {
+    display: flex;
+    width: 100%;
+}
+
+.business-panel {
+    width: 50%;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+}
+
+/* 4.1. 「守る」事業 (Protect) */
+.business-panel.protect {
+    background-color: var(--jpower-infrastructure-gray);
+    color: #FFF;
+}
+
+.business-panel.protect h2 {
+    color: var(--jpower-mission-blue); /* 使命の「青」 */
+    border-bottom: 2px solid var(--jpower-stable-blue);
+}
+
+/* 4.2. 「創る」事業 (Create) */
+.business-panel.create {
+    background-color: var(--jpower-hydrogen-white); /* 水素のクリーンなイメージ  */
+    color: var(--jpower-stable-blue);
+}
+
+.business-panel.create h2 {
+    color: var(--jpower-mission-blue);
+    border-bottom: 2px solid var(--jpower-green-wind);
+}
+
+/* 
+ * ----------------------------------------------------
+ * 5. プロジェクトカード (Renewables)
+ * ----------------------------------------------------
+ * 再生可能エネルギーの具体的なプロジェクトをカード化する。 
+ */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.project-card.card-header {
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* 各プロジェクトのテーマカラーを適用 */
+.project-card.wind.card-header {
+    background-color: var(--jpower-green-wind); /* くずまき第二風力  */
+}
+
+.project-card.geothermal.card-header {
+    background-color: var(--jpower-orange-geothermal); /* 山葵沢地熱  */
+}
+
+.project-card.hydrogen.card-header {
+    background-color: var(--jpower-mission-blue); /* 豪州褐炭水素  */
+}
+
+.project-card.card-body {
+    padding: 1.5rem;
+}
+
+/* 
+ * ----------------------------------------------------
+ * 6. ボタン (Call to Action / Challenge)
+ * ----------------------------------------------------
+ * 「挑戦意欲」を持つ人材 [6] に向けたCTAボタン。
+ */
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary-challenge {
+    background-color: var(--jpower-challenge-accent);
+    color: var(--jpower-infrastructure-gray);
+    border: 1px solid var(--jpower-challenge-accent);
+}
+
+.btn-primary-challenge:hover {
+    background-color: #FFD24D;
+    transform: scale(1.05);
+}
+
+.btn-secondary-stable {
+    background-color: transparent;
+    color: var(--jpower-stable-blue);
+    border: 1px solid var(--jpower-stable-blue);
+}
+
+.btn-secondary-stable:hover {
+    background-color: var(--jpower-stable-blue);
+    color: white;
+}
